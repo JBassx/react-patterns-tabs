@@ -17,15 +17,17 @@ type TabContentProps = {
 }
 
 type TabsComposition = {
-  Titles: React.FC<TabTitlesProps>
-  Contents: React.FC<TabContentProps>
+  Titles: (props: TabTitlesProps) => React.ReactNode
+  Contents: (props: TabContentProps) => React.ReactNode
 }
 
 type TabsProps = {
   children: React.ReactNode
 }
 
-const Tabs: React.FC<TabsProps> & TabsComposition = ({ children }) => {
+type TabsWrapper = (props: TabsProps) => React.ReactNode
+
+const Tabs: TabsWrapper & TabsComposition = ({ children }) => {
   return <TabsProvider>{children}</TabsProvider>
 }
 

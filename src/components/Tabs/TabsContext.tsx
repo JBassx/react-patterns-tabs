@@ -1,4 +1,4 @@
-import React, {
+import {
   Dispatch,
   ReactNode,
   SetStateAction,
@@ -23,7 +23,7 @@ const initialContext: TabsContextProps = {
 
 const TabsContext = createContext<TabsContextProps>(initialContext)
 
-const TabsProvider: React.FC<TabsProviderProps> = ({ children }) => {
+function TabsProvider({ children }: TabsProviderProps) {
   const [currentIndex, setCurrentIndex] = useState<number>(0)
 
   return (
@@ -35,7 +35,7 @@ const TabsProvider: React.FC<TabsProviderProps> = ({ children }) => {
 
 export default TabsProvider
 
-export const useTabsContext = (): TabsContextProps => {
+export function useTabsContext(): TabsContextProps {
   const context = useContext(TabsContext)
   if (context === undefined) {
     throw new Error('useTabs must be used within a TabsProvider')
