@@ -23,7 +23,7 @@ const initialContext: TabsContextProps = {
 
 const TabsContext = createContext<TabsContextProps>(initialContext)
 
-function TabsProvider({ children }: TabsProviderProps) {
+export default function TabsProvider({ children }: TabsProviderProps) {
   const [currentIndex, setCurrentIndex] = useState<number>(0)
 
   return (
@@ -32,8 +32,6 @@ function TabsProvider({ children }: TabsProviderProps) {
     </TabsContext.Provider>
   )
 }
-
-export default TabsProvider
 
 export function useTabsContext(): TabsContextProps {
   const context = useContext(TabsContext)

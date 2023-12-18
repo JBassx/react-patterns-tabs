@@ -7,7 +7,7 @@ const tabData = [
   { id: 'tab3_unique_id', title: 'Tab 3', content: 'Content for Tab 3' },
 ]
 
-function App() {
+export default function App() {
   return (
     <div className="tabs-wrapper">
       <Tabs>
@@ -22,5 +22,3 @@ function App() {
     </div>
   )
 }
-
-export default App
